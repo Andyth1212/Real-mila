@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f0f0f;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #slide-1 {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    #slide-2 {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 12vw, 10rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    #slide-1 h1 {
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.2s;
+    }
+
+    #slide-1 h1:hover {
+      opacity: 0.7;
+    }
+
+    #slide-2 h1 {
+      color: #e00;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.2s;
+    }
+
+    #slide-2 h1:hover {
+      opacity: 0.7;
+    }
+
+    #slide-3 {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
+    #slide-3 img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide" id="slide-1">
+    <h1 onclick="goToSlide2()">Hello</h1>
+  </div>
+
+  <div class="slide" id="slide-2">
+    <h1 onclick="goToSlide3()">Zalia</h1>
+  </div>
+
+  <div class="slide" id="slide-3">
+    <img src="mila.jpeg" alt="Mila">
+  </div>
+
+  <script>
+    function goToSlide2() {
+      document.getElementById('slide-1').style.opacity = '0';
+      document.getElementById('slide-1').style.transform = 'translateX(-100%)';
+      document.getElementById('slide-2').style.opacity = '1';
+      document.getElementById('slide-2').style.transform = 'translateX(0)';
+    }
+
+    function goToSlide3() {
+      document.getElementById('slide-2').style.opacity = '0';
+      document.getElementById('slide-2').style.transform = 'translateX(-100%)';
+      document.getElementById('slide-3').style.opacity = '1';
+      document.getElementById('slide-3').style.transform = 'translateX(0)';
+    }
+  </script>
+
+</body>
+</html>
